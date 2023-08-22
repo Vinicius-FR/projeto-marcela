@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Declaração de Amor</title>
+<title>Marcela = Amor</title>
+<link rel="icon" href="images/heart.png">
 <style>
   body {
     display: flex;
@@ -11,29 +12,42 @@
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #ffcccc; /* Cor de fundo */
+    border: 5px solid #ff0055; /* Bordas em todo o body */
+  }
+
+  #container {
+    text-align: center;
   }
 
   #message {
     font-size: 2rem;
-    color: red;
+    color: #ff0055; /* Cor do texto */
     text-align: center;
     display: none;
-    animation: blink 1s infinite alternate;
+    margin-top: 20px;
   }
 
-  @keyframes blink {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
+  #loveImage {
+    max-width: 15%; /* Defina o tamanho máximo da imagem */
+    border: 5px solid #ff0055; /* Cor da moldura */
+    border-radius: 10px; /* Arredondamento da moldura */
+    margin: 20px auto; /* Centralizar a imagem acima dos botões */
+    display: block;
   }
 
   #btnShowLove {
     padding: 10px 20px;
-    background-color: red;
+    background-color: #ff0055; /* Cor do botão */
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  #btnShowMessage {
+    padding: 10px 20px;
+    background-color: #ffcc00; /* Cor do botão */
     color: white;
     border: none;
     cursor: pointer;
@@ -41,21 +55,46 @@
 </style>
 </head>
 <body>
-<div id="message">Amor, me desculpe por ser tão falho, espero que me perdoe e que se lembre que você é tudo o que penso e desejo todo dia e o dia todo, você é muito mais do que qualquer um pode dizer de você, você é o meu mundo e fico sem chão sem você, amo-te mais que tudo!</div>
-<button id="btnShowLove">Mostrar Amor</button>
+<div id="container">
+  <div id="message">Tenho muito orgulho de você, sonho em viver com alguém tão incrível todo dia!</div>
+  <img id="loveImage" src="images\image.jpeg" alt="Amor">
+  <button id="btnShowLove">Mostrar Amor</button>
+  <button id="btnShowMessage">Outra Mensagem</button>
+</div>
 
 <script>
   const message = document.getElementById('message');
+  const loveImage = document.getElementById('loveImage');
   const btnShowLove = document.getElementById('btnShowLove');
+  const btnShowMessage = document.getElementById('btnShowMessage');
   let showMessage = false;
+  let showImage = true;
 
   btnShowLove.addEventListener('click', () => {
     showMessage = !showMessage;
-    
+
     if (showMessage) {
       message.style.display = 'block';
     } else {
       message.style.display = 'none';
+    }
+  });
+
+  btnShowMessage.addEventListener('click', () => {
+    if (message.style.display === 'none') {
+      message.textContent = "Você é a razão do meu sorriso, Marcela!"; /* Nova mensagem */
+      message.style.display = 'block';
+    } else {
+      message.style.display = 'none';
+    }
+  });
+
+  loveImage.addEventListener('click', () => {
+    showImage = !showImage;
+    if (showImage) {
+      loveImage.style.display = 'block';
+    } else {
+      loveImage.style.display = 'none';
     }
   });
 </script>
